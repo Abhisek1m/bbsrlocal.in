@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBSRLocal — Everything Bhubaneswar & Odisha, One Place</title>
+<meta name="description" content="The go-to guide for Bhubaneswar & Odisha — 35+ verified places, live open/closed status, street food trail, day trips and visitor essentials. Built by locals.">
+<meta name="keywords" content="Bhubaneswar guide, things to do in Bhubaneswar, BBSR food, Odisha travel, dahibara aludum, Konark, Puri, Bhubaneswar nightlife">
+<meta property="og:title" content="BBSRLocal — Everything Bhubaneswar, One Place">
+<meta property="og:description" content="35+ verified places, live open-now status, street food trail and visitor essentials. Your local guide to the Temple City.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bbsrlocal.in">
+<meta name="theme-color" content="#0E0B10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Schibsted+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Oriya:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/shared.css">
+<link rel="stylesheet" href="assets/css/home.css">
+</head>
+<body>
+<div class="glow g1" aria-hidden="true"></div>
+<div class="glow g2" aria-hidden="true"></div>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="logo" href="#top">BBSR<span class="grad-text">LOCAL</span></a>
+    <ul class="nav-links">
+      <li><a href="#directory">Directory</a></li>
+      <li><a href="#streetfood">Street Food</a></li>
+      <li><a href="#daytrips">Day Trips</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#essentials">Essentials</a></li>
+      <li><a href="trains.html">🚂 Trains</a></li>
+      <li><a class="nav-cta" href="#list-biz">List your business</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+<header class="hero" id="top">
+  <span class="pill"><span class="dot"></span> Live guide · Bhubaneswar, Odisha</span>
+  <h1>Everything <span class="grad-text">Bhubaneswar.</span><br>One place.</h1>
+  <p class="lead">35+ verified spots with live open-now status — temples, food, nightlife, family fun, shopping and beyond. Built by locals, free forever.</p>
+
+  <div class="hero-search">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input type="search" id="heroSearch" placeholder="Try 'rooftop', 'biryani', 'temple', 'kids'..." aria-label="Search Bhubaneswar places">
+    <button onclick="heroGo()">Search</button>
+  </div>
+  <div class="quick-chips">
+    <button class="qchip" onclick="quick('Temples & Heritage')">🛕 Temples</button>
+    <button class="qchip" onclick="quick('Cafes')">☕ Cafes</button>
+    <button class="qchip" onclick="quick('Nightlife')">🪩 Nightlife</button>
+    <button class="qchip" onclick="quick('Family & Kids')">🎪 Kids</button>
+    <button class="qchip" onclick="quickSearch('open')">🟢 Open now</button>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat"><b id="statCount">35</b><span>places</span></div>
+    <div class="stat"><b>8</b><span>categories</span></div>
+    <div class="stat"><b id="statOpen">—</b><span>open now</span></div>
+    <div class="stat"><b>₹0</b><span>to use</span></div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="odia">ଭୁବନେଶ୍ୱର</span><span>TEMPLE CITY</span><span class="v">◆</span>
+    <span class="odia">ଦହିବରା ଆଳୁଦମ</span><span>STREET FOOD</span><span class="v">◆</span>
+    <span class="odia">କୋଣାର୍କ</span><span>SUN TEMPLE</span><span class="v">◆</span>
+    <span class="odia">ଜଗନ୍ନାଥ</span><span>PURI DHAM</span><span class="v">◆</span>
+    <span class="odia">ଚିଲିକା</span><span>DOLPHINS</span><span class="v">◆</span>
+    <span class="odia">ସମ୍ବଲପୁରୀ</span><span>HANDLOOM</span><span class="v">◆</span>
+  </div>
+</div>
+
+<!-- ================= HERO CAROUSEL ================= -->
+<section class="hero-carousel" aria-label="Bhubaneswar photo gallery">
+  <div class="carousel-inner" id="carouselInner">
+    <img class="carousel-slide active"
+         src="https://picsum.photos/seed/bbsrhero1/1200/600"
+         alt="Lingaraj Temple — the soul of Bhubaneswar"
+         loading="eager" fetchpriority="high">
+    <img class="carousel-slide"
+         src="https://picsum.photos/seed/bbsrhero2/1200/600"
+         alt="Street food stalls of Bhubaneswar at dusk"
+         loading="eager">
+    <img class="carousel-slide"
+         src="https://picsum.photos/seed/bbsrhero3/1200/600"
+         alt="Chilika Lake at sunrise"
+         loading="lazy">
+    <img class="carousel-slide"
+         src="https://picsum.photos/seed/bbsrhero4/1200/600"
+         alt="Konark Sun Temple chariot wheel"
+         loading="lazy">
+  </div>
+  <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Carousel navigation"></div>
+</section>
+
+<!-- ================= NEWS ================= -->
+<section id="news">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Live · Updated on load</span>
+      <h2>Today in Bhubaneswar</h2>
+      <p>The latest headlines from the city and state — pulled fresh every time you visit.</p>
+    </div>
+    <div id="newsGrid" class="news-ticker">
+      <p class="news-error">Loading latest news…</p>
+    </div>
+    <a class="news-more"
+       href="https://news.google.com/search?q=Bhubaneswar+Odisha&hl=en-IN&gl=IN&ceid=IN:en"
+       target="_blank" rel="noopener">View all Odisha news →</a>
+  </div>
+</section>
+
+<!-- ================= DIRECTORY ================= -->
+<section id="directory">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The Directory</span>
+      <h2>Find your next plan in seconds</h2>
+      <p>Real Google ratings, verified timings, live open/closed status — refreshed every minute.</p>
+    </div>
+    <div class="dir-tools">
+      <div class="filter-row" id="filterRow" role="group" aria-label="Category filters"></div>
+      <div class="dir-row2">
+        <div class="dir-count" id="dirCount"></div>
+        <button class="btn-surprise" onclick="surprise()">🎲 Surprise me</button>
+      </div>
+    </div>
+    <div class="surprise-banner" id="surpriseBanner" aria-live="polite"></div>
+    <div class="card-grid" id="dirGrid"></div>
+    <div class="no-results" id="noResults">Nothing matched. Try "temple", "cafe", "club" or "kids" — or hit Surprise me.</div>
+  </div>
+</section>
+
+<!-- ================= STREET FOOD ================= -->
+<section id="streetfood">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The Street Food Trail</span>
+      <h2>Five plates that define this city</h2>
+      <p>Eaten in this order on one evening — the most authentic ₹300 you'll ever spend in Odisha. Stalls fire up from around 5 PM.</p>
+    </div>
+    <div class="trail">
+      <article class="dish reveal">
+        <div class="dish-img-wrap">
+          <img class="dish-img" src="https://picsum.photos/seed/dahibara/800/400" alt="Dahibara Aludum" loading="lazy">
+          <span class="dish-num-badge">01</span>
+        </div>
+        <span class="odia">ଦହିବରା ଆଳୁଦମ</span>
+        <h3>Dahibara Aludum</h3>
+        <p>Lentil baras soaked in tempered curd water, drowned in spicy aludum and ghuguni. Invented in Cuttack, perfected everywhere. The undisputed king.</p>
+        <span class="where">📍 Rajmahal Square · Saheed Nagar stalls</span>
+      </article>
+      <article class="dish reveal">
+        <div class="dish-img-wrap">
+          <img class="dish-img" src="https://picsum.photos/seed/gupchup/800/400" alt="Gupchup" loading="lazy">
+          <span class="dish-num-badge">02</span>
+        </div>
+        <span class="odia">ଗୁପଚୁପ</span>
+        <h3>Gupchup</h3>
+        <p>Odisha's answer to panipuri — crisper shells, spicier water, and a free "dry one" at the end if the bhaiya likes you. Non-negotiable evening ritual.</p>
+        <span class="where">📍 Every market square · Unit 4 is legendary</span>
+      </article>
+      <article class="dish reveal">
+        <div class="dish-img-wrap">
+          <img class="dish-img" src="https://picsum.photos/seed/baraghuguni/800/400" alt="Bara Ghuguni" loading="lazy">
+          <span class="dish-num-badge">03</span>
+        </div>
+        <span class="odia">ବରା ଘୁଗୁନି</span>
+        <h3>Bara Ghuguni</h3>
+        <p>Crispy fried lentil baras smothered in tangy yellow pea curry, topped with onions and sev. The tiffin staple locals never outgrow.</p>
+        <span class="where">📍 Bapuji Nagar · Master Canteen area</span>
+      </article>
+      <article class="dish reveal">
+        <div class="dish-img-wrap">
+          <img class="dish-img" src="https://picsum.photos/seed/chhenapoda/800/400" alt="Chhena Poda" loading="lazy">
+          <span class="dish-num-badge">04</span>
+        </div>
+        <span class="odia">ଛେନା ପୋଡ଼</span>
+        <h3>Chhena Poda</h3>
+        <p>"Burnt cheese" — caramelised baked cottage cheese with cardamom. Odisha's signature dessert, said to be Lord Jagannath's favourite.</p>
+        <span class="where">📍 Any good sweet shop · District Center</span>
+      </article>
+      <article class="dish reveal">
+        <div class="dish-img-wrap">
+          <img class="dish-img" src="https://picsum.photos/seed/pakhala/800/400" alt="Pakhala Bhata" loading="lazy">
+          <span class="dish-num-badge">05</span>
+        </div>
+        <span class="odia">ପଖାଳ</span>
+        <h3>Pakhala Bhata</h3>
+        <p>Fermented rice in water with fried sides — the dish of Odia summers, now served as full ceremonial thalis at lunch.</p>
+        <span class="where">📍 Atithi Devo Bhaba, Saheed Nagar (lunch)</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DAY TRIPS ================= -->
+<section id="daytrips">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Beyond the City</span>
+      <h2>Worth leaving BBSR for</h2>
+      <p>All under two hours away. Full travel packages coming soon on <a href="https://travel.bbsrlocal.in" style="color:var(--verm);font-weight:600">travel.bbsrlocal.in</a>.</p>
+    </div>
+    <div class="trip-grid">
+      <article class="trip reveal">
+        <div class="trip-img-wrap">
+          <img class="trip-img" src="https://picsum.photos/seed/konarktemple/800/400" alt="Konark Sun Temple" loading="lazy">
+          <span class="trip-dist-badge">65 km · ~1.5 hr</span>
+        </div>
+        <h3>Konark Sun Temple</h3>
+        <p>The 13th-century stone chariot of Surya — a UNESCO World Heritage Site rated ★4.7 by 1 lakh+ visitors. Go early, hire a guide for the wheel sundials, stay for the light &amp; sound show.</p>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Sun+Temple+Konark" target="_blank" rel="noopener">Open in Maps →</a>
+      </article>
+      <article class="trip reveal">
+        <div class="trip-img-wrap">
+          <img class="trip-img" src="https://picsum.photos/seed/puribeach/800/400" alt="Puri Jagannath Dham" loading="lazy">
+          <span class="trip-dist-badge">60 km · ~1.5 hr</span>
+        </div>
+        <h3>Puri — Jagannath Dham</h3>
+        <p>One of the four Char Dhams (★4.7, 1.36 lakh reviews). Reach early for darshan, try Mahaprasad at Ananda Bazaar, end on Puri beach at sunset.</p>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Shree+Jagannatha+Temple+Puri" target="_blank" rel="noopener">Open in Maps →</a>
+      </article>
+      <article class="trip reveal">
+        <div class="trip-img-wrap">
+          <img class="trip-img" src="https://picsum.photos/seed/chilikalake/800/400" alt="Chilika Lake" loading="lazy">
+          <span class="trip-dist-badge">100 km · ~2 hr</span>
+        </div>
+        <h3>Chilika Lake</h3>
+        <p>Asia's largest brackish lagoon — Irrawaddy dolphins, Kalijai Island and migratory birds in winter. Boats run from Satapada and Barkul all day.</p>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Chilika+Lake+Satapada" target="_blank" rel="noopener">Open in Maps →</a>
+      </article>
+      <article class="trip reveal">
+        <div class="trip-img-wrap">
+          <img class="trip-img" src="https://picsum.photos/seed/chandakaforest/800/400" alt="Chandaka Forest" loading="lazy">
+          <span class="trip-dist-badge">25 km · ~45 min</span>
+        </div>
+        <h3>Chandaka &amp; Deras</h3>
+        <p>Elephant country at the city's doorstep — jungle safari, Deras dam views, boating and an overnight eco camp. Winter mornings = best sightings.</p>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Deras+Nature+Camp+Chandaka" target="_blank" rel="noopener">Open in Maps →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLOG ================= -->
+<section id="blog">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">City Journal</span>
+      <h2>Stories from the Temple City</h2>
+      <p>Local guides, food discoveries and cultural deep-dives — written by people who live here.</p>
+    </div>
+    <div class="blog-grid" id="blogGrid"></div>
+    <a class="blog-more" href="#">View all posts →</a>
+  </div>
+</section>
+
+<!-- ================= ESSENTIALS ================= -->
+<section id="essentials">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Visitor Essentials</span>
+      <h2>Land here, know everything</h2>
+      <p>The practical stuff nobody puts in one place — until now.</p>
+    </div>
+    <div class="ess-grid">
+      <div class="ess reveal">
+        <span class="ico">✈️</span>
+        <h3>Getting in</h3>
+        <p><b>Biju Patnaik International Airport (BBI)</b> is just 5 km from the city centre. Trains arrive at <b>Bhubaneswar station</b>, right beside Master Canteen square.</p>
+        <span class="mono-tag">Airport → city: ~₹250 cab</span>
+      </div>
+      <div class="ess reveal">
+        <span class="ico">🚌</span>
+        <h3>Getting around</h3>
+        <p><b>Mo Bus</b> is the award-winning city bus network (use the Mo Bus app). Autos run everywhere; <b>Ola, Uber and Rapido</b> all operate, with Rapido bikes cheapest for solo hops.</p>
+        <span class="mono-tag">Mo Bus from ₹10</span>
+      </div>
+      <div class="ess reveal">
+        <span class="ico">🌤️</span>
+        <h3>Best time to visit</h3>
+        <p><b>October to February</b> is ideal — pleasant days, festival season, and migratory birds at Chilika. Summers (Apr-Jun) are hot; carry water and plan indoor afternoons.</p>
+        <span class="mono-tag">Peak season: Oct - Feb</span>
+      </div>
+      <div class="ess reveal">
+        <span class="ico">🗣️</span>
+        <h3>Speak a little Odia</h3>
+        <p><b>Namaskar</b> = hello · <b>Dhanyabad</b> = thank you · <b>Kete?</b> = how much? · <b>Bhala</b> = good. Hindi and English work fine across the city.</p>
+        <span class="mono-tag">ନମସ୍କାର · Namaskar</span>
+      </div>
+      <div class="ess reveal">
+        <span class="ico">🛕</span>
+        <h3>Temple etiquette</h3>
+        <p>Dress modestly at temples. <b>Lingaraj and Puri Jagannath allow Hindus only</b> inside; phones and leather stay outside (safe stands provided). Mornings are calmest.</p>
+        <span class="mono-tag">Remove footwear before entering</span>
+      </div>
+      <div class="ess reveal">
+        <span class="ico">🆘</span>
+        <h3>Emergency & help</h3>
+        <p>All-in-one emergency: <b>112</b> · Ambulance: <b>108</b> · Police: <b>100</b>. Major hospitals: AIIMS Bhubaneswar, KIMS, Apollo. Tap water — stick to bottled.</p>
+        <span class="mono-tag">Dial 112</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LIST BIZ ================= -->
+<section id="list-biz">
+  <div class="wrap">
+    <div class="biz-box reveal">
+      <div class="odia-bg" aria-hidden="true">ଭୁବନେଶ୍ୱର</div>
+      <h2>Run a business in Bhubaneswar?</h2>
+      <p>Get listed on BBSRLocal for free — restaurants, cafes, shops, services, home businesses. Early listings get featured placement when the full directory launches.</p>
+      <a href="https://wa.me/919999999999?text=Hi!%20I%20want%20to%20list%20my%20business%20on%20BBSRLocal.%20Name%3A%20%2F%20Category%3A%20%2F%20Area%3A" target="_blank" rel="noopener">List my business free →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div>
+        <a class="logo" href="#top">BBSR<span class="grad-text">LOCAL</span></a>
+        <p>Everything Bhubaneswar — food, culture, nightlife and city life, in one place. Made with ❤ in Odisha.</p>
+      </div>
+      <ul class="foot-links">
+        <li><a href="#directory">Directory</a></li>
+        <li><a href="#streetfood">Street Food</a></li>
+        <li><a href="#daytrips">Day Trips</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#essentials">Essentials</a></li>
+        <li><a href="#list-biz">List a business</a></li>
+        <li><a href="trains.html">Trains</a></li>
+        <li><a href="https://travel.bbsrlocal.in">Travel</a></li>
+        <li><a href="https://wa.me/919999999999" target="_blank" rel="noopener">Contact</a></li>
+      </ul>
+    </div>
+    <p class="copyright">© 2026 BBSRLOCAL.IN · TEMPLE CITY · ଭୁବନେଶ୍ୱର</p>
+  </div>
+</footer>
+
+<!-- Mobile tab bar -->
+<nav class="tabbar" aria-label="Quick navigation">
+  <ul>
+    <li><a href="#top"><span class="ico">🏠</span>Home</a></li>
+    <li><a href="#directory"><span class="ico">🧭</span>Places</a></li>
+    <li><a href="#streetfood"><span class="ico">🍢</span>Food</a></li>
+    <li><a href="#news"><span class="ico">📰</span>News</a></li>
+    <li><a href="#blog"><span class="ico">✍️</span>Blog</a></li>
+  </ul>
+</nav>
+
+<a class="wa-float" href="https://wa.me/919999999999?text=Hi%20BBSRLocal!" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 6.99 2.9 9.83 9.83 0 0 1 2.9 7c0 5.45-4.44 9.88-9.9 9.88zm8.42-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.47-8.41z"/></svg>
+  <span>Chat with us</span>
+</a>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/blog.js"></script>
+<script src="assets/js/news.js"></script>
+<script src="assets/js/directory.js"></script>
+<script src="assets/js/utils.js"></script>
+</body>
+</html>

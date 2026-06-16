@@ -1,0 +1,164 @@
+/* =========================================================
+   shared.css — tokens, reset, nav, footer, tabbar, wa-float
+   Used by every page on bbsrlocal.in
+   ========================================================= */
+
+/* ---------- Design tokens ---------- */
+:root {
+  --bg:      #0E0B10;
+  --bg2:     #15101A;
+  --surface: rgba(255,255,255,.045);
+  --surface2:rgba(255,255,255,.08);
+  --stroke:  rgba(255,255,255,.1);
+  --stroke2: rgba(255,255,255,.18);
+  --cream:   #F5EFE4;
+  --muted:   #9A8FA3;
+  --verm:    #FF4D2E;
+  --gold:    #FFB628;
+  --jade:    #3ECF8E;
+  --grad:    linear-gradient(120deg,#FF4D2E 0%,#FF7A1A 45%,#FFB628 100%);
+  --radius:  20px;
+  --radius-sm: 14px;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+body {
+  font-family: 'Schibsted Grotesk', sans-serif;
+  background: var(--bg);
+  color: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3 { font-family: 'Unbounded', sans-serif; line-height: 1.12; }
+.mono  { font-family: 'JetBrains Mono', monospace; }
+.odia  { font-family: 'Noto Sans Oriya', sans-serif; }
+a      { color: inherit; }
+button { font-family: inherit; }
+.wrap  { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Ambient glow ---------- */
+.glow {
+  position: fixed; border-radius: 50%;
+  filter: blur(120px); pointer-events: none; z-index: 0;
+}
+.glow.g1 { width:480px; height:480px; background:rgba(255,77,46,.13);  top:-160px;    right:-120px; }
+.glow.g2 { width:420px; height:420px; background:rgba(255,182,40,.07); bottom:-150px; left:-130px;  }
+main, nav, footer { position: relative; z-index: 1; }
+
+/* ---------- Section shared ---------- */
+section { padding: 72px 0; }
+.sec-head { margin-bottom: 34px; }
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--verm);
+  font-weight: 500; display: block; margin-bottom: 12px;
+}
+.sec-head h2 { font-size: clamp(1.5rem, 4vw, 2.4rem); font-weight: 700; letter-spacing: -.01em; }
+.sec-head p  { margin-top: 12px; color: var(--muted); max-width: 62ch; font-size: .98rem; }
+
+/* ---------- Sticky nav ---------- */
+nav {
+  position: sticky; top: 0; z-index: 80;
+  background: rgba(14,11,16,.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--stroke);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 15px 20px; max-width: 1140px; margin: 0 auto;
+}
+.logo {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 900; font-size: 1.12rem;
+  text-decoration: none; letter-spacing: -.02em;
+}
+.logo .grad-text { font-weight: 900; }
+.nav-links { display: flex; gap: 6px; list-style: none; align-items: center; }
+.nav-links a {
+  text-decoration: none; font-size: .88rem; font-weight: 500; color: var(--muted);
+  padding: 8px 14px; border-radius: 99px; transition: all .2s;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible { color: var(--cream); background: var(--surface2); }
+.nav-cta {
+  background: var(--grad); color: #16100A !important;
+  font-weight: 700 !important; margin-left: 6px;
+}
+@media (max-width: 860px) { .nav-links { display: none; } }
+
+/* ---------- Mobile bottom tab bar ---------- */
+.tabbar {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 80;
+  background: rgba(14,11,16,.82);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  border-top: 1px solid var(--stroke);
+  padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
+}
+.tabbar ul { display: flex; list-style: none; justify-content: space-around; }
+.tabbar a {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  text-decoration: none; font-size: .62rem; color: var(--muted);
+  font-family: 'JetBrains Mono', monospace; letter-spacing: .04em;
+  padding: 4px 10px; border-radius: 12px; transition: color .2s;
+}
+.tabbar a:active, .tabbar a:hover { color: var(--gold); }
+.tabbar .ico { font-size: 1.15rem; line-height: 1; }
+@media (max-width: 860px) {
+  .tabbar { display: block; }
+  body   { padding-bottom: 74px; }
+}
+
+/* ---------- Footer ---------- */
+footer { padding: 56px 0 36px; border-top: 1px solid var(--stroke); margin-top: 72px; }
+.foot-inner { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
+.foot-inner p { font-size: .86rem; color: var(--muted); margin-top: 10px; max-width: 34ch; }
+.foot-links  { display: flex; gap: 8px; list-style: none; flex-wrap: wrap; }
+.foot-links a {
+  text-decoration: none; font-size: .85rem; color: var(--muted);
+  padding: 7px 13px; border-radius: 99px; transition: all .2s;
+}
+.foot-links a:hover { color: var(--cream); background: var(--surface2); }
+.copyright {
+  margin-top: 30px; font-size: .72rem;
+  font-family: 'JetBrains Mono', monospace; color: var(--muted);
+}
+
+/* ---------- WhatsApp floating button ---------- */
+.wa-float {
+  position: fixed; right: 18px; bottom: 18px; z-index: 70;
+  background: #25D366; color: #fff; border-radius: 99px;
+  display: flex; align-items: center; gap: 9px;
+  padding: 13px 20px; text-decoration: none;
+  font-weight: 700; font-size: .9rem;
+  box-shadow: 0 10px 28px rgba(0,0,0,.4);
+}
+.wa-float:hover { background: #1EBE5A; }
+@media (max-width: 860px) {
+  .wa-float         { bottom: 86px; padding: 14px; }
+  .wa-float span    { display: none; }
+}
+
+/* ---------- Reveal animation ---------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ---------- Focus ring ---------- */
+:focus-visible { outline: 2.5px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+
+/* ---------- Pulse keyframe (used by hero dot) ---------- */
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
